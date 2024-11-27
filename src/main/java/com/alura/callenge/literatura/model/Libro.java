@@ -62,11 +62,11 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "---------Libro --------------\n" +
+        return "\"-------------------LIBRO---------------------\n" +
                 "Titulo: " + titulo + '\n' +
                 "Descargas: " + descargas + '\n' +
                 "Lenguaje: " + lenguaje + '\n' +
                 "Autor: " + autor.getNombre() + '\n' +
-                "------------------------------\n";
+                "----------------------------------------------\n";
     }
 }

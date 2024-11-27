@@ -68,7 +68,7 @@ public class Principal {
         int option = -1;
         while (option < 0 || option > 5) {
             try {
-                System.out.print("Introduce la opción que deseas: ");
+                System.out.print("Introduce la opción que deseas utilizar: ");
                 option = teclado.nextInt();
                 teclado.nextLine();
             } catch (InputMismatchException e) {
@@ -85,9 +85,18 @@ public class Principal {
         String resultadoLibro = consumoAPI.obtenerDatos(dotenv.get("API_URL") + "search=" + busquedaDeLibro.replace(" ", "+"));
         List<DatosLibro> buscarLibro = convierteDatos.obtenerDatos(resultadoLibro, Datos.class).datos();
 
+
         if (buscarLibro.isEmpty()) {
             System.out.println("No se han encontrado libros con este nombre.");
         } else {
+
+            System.out.println(new LibroDto(
+                    buscarLibro.get(0).titulo(),
+                    buscarLibro.get(0).descargas(),
+                    buscarLibro.get(0).lenguajes().get(0),
+                    buscarLibro.get(0).autores().get(0).nombre()
+            ));
+
             guardarLibro(buscarLibro.get(0));
         }
     }

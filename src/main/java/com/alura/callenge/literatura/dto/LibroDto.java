@@ -50,11 +50,15 @@ public class LibroDto {
 
     @Override
     public String toString() {
-        return "-------------------Libro---------------------\n" +
-                "Titulo: " + titulo + '\n' +
-                "Descargas: " + descargas + '\n' +
-                "Lenguaje: " + lenguaje + '\n' +
-                "Autor: " + autor + '\n' +
-                "----------------------------------------------\n";
+        return String.format(
+                "-------------------LIBRO---------------------\n" +
+                        "Titulo: %s\n" +
+                        "Descargas: %d\n" +
+                        "Lenguaje: %s\n" +
+                        "Autor: %s\n" +
+                        "----------------------------------------------\n",
+                titulo, descargas, lenguaje, autor
+        );
     }
+
 }
