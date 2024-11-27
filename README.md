@@ -63,7 +63,8 @@ Ejecuta la clase ```LiteraturaApplication``` para empezar a utilizar El Viaje Li
 0 - Salir
 ```
 Ejemplo de búsqueda de libro:
-![img.png](img.png)
+![image](https://github.com/user-attachments/assets/e098b361-2367-4820-b896-8cb39579a4f7)
+
 
 ## 🛠️ Tecnologías utilizadas
 - Java 17: Lenguaje principal.
