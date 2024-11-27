@@ -1,11 +1,19 @@
 package com.alura.callenge.literatura.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-public record DatosLibro(
-        @JsonAlias("Title") String titulo,
-        @JsonAlias("authors") String autor,
-        @JsonAlias("languages") String idioma,
-        @JsonAlias("download_count") Double numeroDeDescargas
-) {
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record Libro (
+        @JsonAlias("title")
+        String title,
+        @JsonAlias("authors")
+        List<Person> authors,
+        @JsonAlias("download_count")
+        Integer downloadCount,
+        @JsonAlias("languages")
+        List<String> languages
+){
 }
