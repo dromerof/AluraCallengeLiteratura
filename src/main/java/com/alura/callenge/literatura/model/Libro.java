@@ -2,24 +2,23 @@ package com.alura.callenge.literatura.model;
 
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name = "books")
-public class LibroEntity {
+@Table(name = "libros")
+public class Libro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title;
+    private String titulo;
 
-    @Column(name = "download_count")
-    private Integer downloadCount;
+    @Column(name = "numero_descargas")
+    private Integer descargas;
 
-    private String languages;
+    private String lenguaje;
 
     @ManyToOne
-    @JoinColumn(name = "author_id")
-    private AutorEntity author;
+    @JoinColumn(name = "autor_id")
+    private Autor autor;
 
     public Integer getId() {
         return id;
@@ -29,45 +28,45 @@ public class LibroEntity {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public Integer getDownloadCount() {
-        return downloadCount;
+    public Integer getDescargas() {
+        return descargas;
     }
 
-    public void setDownloadCount(Integer downloadCount) {
-        this.downloadCount = downloadCount;
+    public void setDescargas(Integer descargas) {
+        this.descargas = descargas;
     }
 
-    public String getLanguages() {
-        return languages;
+    public String getLenguaje() {
+        return lenguaje;
     }
 
-    public void setLanguages(String languages) {
-        this.languages = languages;
+    public void setLenguaje(String lenguaje) {
+        this.lenguaje = lenguaje;
     }
 
-    public AutorEntity getAuthor() {
-        return author;
+    public Autor getAutor() {
+        return autor;
     }
 
-    public void setAuthor(AutorEntity author) {
-        this.author = author;
+    public void setAutor(Autor author) {
+        this.autor = author;
     }
 
     @Override
     public String toString() {
         return "---------Libro --------------\n" +
-                "Titulo: " + title + '\n' +
-                "Descargas: " + downloadCount + '\n' +
-                "Lenguaje: " + languages + '\n' +
-                "Autor: " + author.getName() + '\n' +
+                "Titulo: " + titulo + '\n' +
+                "Descargas: " + descargas + '\n' +
+                "Lenguaje: " + lenguaje + '\n' +
+                "Autor: " + autor.getNombre() + '\n' +
                 "------------------------------\n";
     }
 }

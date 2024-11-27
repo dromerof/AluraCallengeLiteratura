@@ -6,21 +6,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "autores")
 public class  Autor{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "birth_year")
+    @Column(name = "fecha_nacimiento")
     private Integer fechaDeNacimiento;
 
-    @Column(name = "death_year")
+    @Column(name = "fecha_fallecimiento")
     private Integer fechaDeMuerte;
 
     private String nombre;
 
-    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Libro> libros;
+
+    public Autor() {}
 
     public Integer getId() {
         return id;
@@ -46,11 +48,11 @@ public class  Autor{
         this.fechaDeMuerte = fechaDeMuerte;
     }
 
-    public String getName() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setName(String name) {
+    public void setNombre(String name) {
         this.nombre = name;
     }
 
@@ -63,13 +65,11 @@ public class  Autor{
         this.libros = libros;
     }
 
-
-
     @Override
     public String toString() {
         return "Nombre: " + nombre + '\n' +
                 "Fecha de nacimiento: " + fechaDeNacimiento + '\n' +
                 "Fecha de muerte: " + fechaDeMuerte + '\n' +
-                "Libros: " + libros.stream().map(Libro::getTitle).collect(Collectors.joining(" - ")) + '\n';
+                "Libros: " + libros.stream().map(Libro::getTitulo).collect(Collectors.joining(" - ")) + '\n';
     }
 }
